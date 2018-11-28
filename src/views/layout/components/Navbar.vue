@@ -2,7 +2,7 @@
   <el-menu class="navbar" mode="horizontal">
     <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
     <breadcrumb />
-    <el-dropdown class="avatar-container" trigger="click">
+    <!--<el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
         <img :src="avatar + '?imageView2/1/w/80/h/80'" class="user-avatar">
         <i class="el-icon-caret-bottom"/>
@@ -17,7 +17,7 @@
           <span style="display:block;" @click="logout">LogOut</span>
         </el-dropdown-item>
       </el-dropdown-menu>
-    </el-dropdown>
+    </el-dropdown>-->
   </el-menu>
 </template>
 
@@ -26,7 +26,6 @@ import Breadcrumb from '@/components/Breadcrumb/index.vue';
 import Hamburger from '@/components/Hamburger/index.vue';
 import { Component, Vue } from 'vue-property-decorator';
 import { AppModule } from '@/store/modules/app';
-import { UserModule } from '@/store/modules/user';
 
 @Component({
   components: {
@@ -39,18 +38,8 @@ export default class Navbar extends Vue {
     return AppModule.sidebar;
   }
 
-  get avatar() {
-    return UserModule.avatar;
-  }
-
   toggleSideBar() {
     AppModule.ToggleSideBar(false);
-  }
-
-  logout() {
-    UserModule.LogOut().then(() => {
-      location.reload(); // 为了重新实例化vue-router对象 避免bug
-    });
   }
 }
 </script>

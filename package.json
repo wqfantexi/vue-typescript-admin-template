@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "@types/js-cookie": "^2.2.0",
+    "@types/node": "^10.12.10",
     "@types/nprogress": "^0.0.29",
+    "@types/vue-router": "^2.0.0",
     "@types/webpack-env": "^1.13.6",
     "axios": "^0.18.0",
     "element-ui": "^2.4.11",
